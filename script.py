@@ -312,8 +312,12 @@ def run(filename):
                     stack.pop()
                 # end operation loop
             print ("Generating frame " + str(frame) + "...")
-            save_extension(screen, "anim/" + name + str(frame) + ".png")
+            if (frame < 10):
+                frame = "0" + str(frame)
+            else:
+                frame = str(frame)
+            save_extension(screen, "anim/" + name + frame + ".png")
             clear_screen(screen)
             clear_zbuffer(zbuffer)
-            frame += 1
+            frame = int(frame) + 1
         print ("Frame generation complete")
